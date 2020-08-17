@@ -42,6 +42,7 @@ Vagrant.configure("2") do |config|
       linux-image-$KERNEL_VERSION-amd64 linux-headers-$KERNEL_VERSION-amd64 linux-headers-$KERNEL_VERSION-common \
       dkms build-essential linux-kbuild-4.19 linux-compiler-gcc-6-x86 \
       firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-amd-graphics
+    ls /dev/disk/by-id/ata-* | grep -v '\\-part' | head -n 1 | xargs -r -l grub-install
   STEP1
   config.vm.provision :reload
 
