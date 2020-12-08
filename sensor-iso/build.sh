@@ -122,7 +122,7 @@ if [ -d "$WORKDIR" ]; then
   # clone and build Moloch .deb package in its own clean environment (rather than in hooks/)
   mkdir -p ./config/packages.chroot/ ./config/includes.chroot/opt/hedgehog_install_artifacts
   bash "$SCRIPT_PATH/moloch/build-docker-image.sh"
-  docker run --rm -v "$SCRIPT_PATH"/moloch:/build moloch-build:latest -o /build
+  docker run --rm -v "$SCRIPT_PATH"/moloch:/build arkime-build:latest -o /build
   cp "$SCRIPT_PATH/moloch"/*.deb ./config/includes.chroot/opt/hedgehog_install_artifacts/
   mv "$SCRIPT_PATH/moloch"/*.deb ./config/packages.chroot/
 
